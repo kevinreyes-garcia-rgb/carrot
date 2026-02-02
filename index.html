@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarrotMovie - Acceso Series</title>
+    <style>
+        /* Estilos CSS para el diseño */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        /* Nuevo estilo para el contenedor del logo y título */
+        .header-branding {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        
+        /* Estilo para el logo */
+        .header-branding img {
+            max-width: 120px; /* Tamaño máximo del logo */
+            height: auto;
+            margin-bottom: 10px; /* Espacio entre el logo y el título */
+            border-radius: 50%; /* Si quieres que el logo sea redondo (opcional) */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #c86f8b; /* Color principal */
+            text-align: center;
+            margin-top: 0; /* Eliminamos el margen superior duplicado */
+        }
+        h2 {
+            border-bottom: 3px solid #000000;
+            padding-bottom: 10px;
+            margin-top: 50px;
+            color: #333;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Muestra 3-4 videos por fila */
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .video-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .video-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        .video-item p {
+            padding: 10px;
+            margin: 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #606770;
+        }
+
+        /* Estilos para la SECCIÓN DE AUTENTICACIÓN GLOBAL */
+        #login-container {
+            background-color: #ffffff; 
+            border: 2px solid #c86f8b;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 100px auto; /* Centrado en la página */
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Estilos para la sección privada DENTRO del contenido principal (opcional, si quieres mantenerla) */
+        #private-section {
+            background-color: #fff3cd; /* Fondo para resaltar la sección */
+            border: 1px solid #ffeeba;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .password-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .password-form input[type="text"],
+        .password-form input[type="password"] { 
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .password-form button {
+            padding: 10px 20px;
+            background-color: #c35377;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .password-form button:hover {
+            background-color: #c9003c;
+        }
+        #auth-message {
+            margin-top: 10px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="login-container">
+        <div class="header-branding">
+            <img src="https://files.catbox.moe/fdchtm.jpeg" alt="CARROT Movies Logo">
+        </div>
+        
+        <h1>Acceso a CARROT Movies</h1>
+        <p>Introduce tus credenciales para acceder al contenido:</p>
+        <div class="password-form">
+            <input type="text" id="global-username-input" placeholder="Nombre de usuario">
+            <input type="password" id="global-password-input" placeholder="Contraseña">
+            <button onclick="globalLogin()">Iniciar Sesión</button>
+            <p id="global-auth-message"></p>
+        </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+
+        <div class="header-branding">
+            <img src="https://files.catbox.moe/evzvn4.jpeg" alt="CARROT Movies Logo">
+            <h1>CARROT Movies</h1>
+        </div>
+
+        <h2>Bocchi The Rock (12 Videos)</h2>
+        <div class="video-grid">
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="https://files.catbox.moe/5h90ie.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 1: Bocchi the rock.</p>
+            </div>
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="https://files.catbox.moe/raj6qu.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 2: Bocchi the rock.</p>
+            </div>
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 3: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 4: Bocchi the rock.</p>
+            </div>
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video5.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 5: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video6.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 6: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video7.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 7: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video8.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 8: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video9.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 9: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video10.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 10: Bocchi the rock.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video. 
+                    </video>
+                    <p>Cap 11: Bocchi the rock.</p>          
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video. 
+                    </video>
+                    <p>Cap 12: Bocchi the rock.</p>
+            </div>
+        </div>
+            
+        <h2>sin titulo (10 Videos)</h2>
+        <div class="video-grid">
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 1: Título o descripción del video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 2: Título del segundo video.</p>
+            </div>
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 3: Título del tercer video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 4: Título del cuarto video.</p>
+            </div>
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video5.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 5: Título del quinto video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video6.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 6: Título del sexto video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video7.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 7: Título del séptimo video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video8.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 8: Título del octavo video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video9.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 9: Título del noveno video.</p>
+            </div>
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/video10.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Clip 10: Título del décimo video.</p>
+            </div>
+        </div>
+
+        <h2>Koe no Katachi (1 Videos)</h2>
+        <div class="video-grid">
+            
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Cap 1: Koe no Katachi.</p>
+            </div>
+
+        <h2>Amor de gata (1 Videos)</h2>
+        <div class="video-grid">
+
+            <div class="video-item">
+                <video controls preload="metadata" poster="">
+                    <source src="ruta/a/videos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video. 
+                </video>
+                <p>Cap 1: Amor de gata. </p>
+            </div>
+        </div>
+        
+        <div id="private-section">
+            <h2>🔒 Videos Privados del owner (10 Clips)</h2>
+            
+            <div id="private-auth" class="password-form">
+                <p>Estos videos tienen una protección adicional. Introduce tus credenciales privadas:</p>
+                <input type="text" id="username-input" placeholder="Nombre de usuario">
+                <input type="password" id="password-input" placeholder="Contraseña">
+                <button onclick="checkCredentials()">Ver Videos</button>
+                <p id="auth-message"></p>
+            </div>
+
+            <div id="private-videos-content" style="display: none;">
+                <div class="video-grid">
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/mx3d9h.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 1: El primer video secreto.</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/9rhazg.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 2.</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/bsvfd3.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 3.</p>
+                    </div>
+
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/k6l166.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 4.</p>
+                    </div>
+
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/s43ni1.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 5.</p>
+                    </div>
+
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/uvp18x.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 6.</p>
+                    </div>
+                    
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/2kk73r.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 7.</p>
+                    </div>
+
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="https://files.catbox.moe/7sxcid.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 8.</p>
+                    </div>
+
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="ruta/a/video-privado9.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 9.</p>
+                    </div>
+
+                    <div class="video-item">
+                        <video controls preload="metadata" poster="">
+                            <source src="ruta/a/video-privado10.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                        <p>Clip Privado 10.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // *** CREDENCIALES DISTINTAS SOLICITADAS ***
+        
+        // 1. Credenciales para el Acceso Global al Sitio
+        const globalCorrectUsername = "Usuario"; 
+        const globalCorrectPassword = "usuario11";
+
+        // 2. Credenciales para los Videos Privados (owner)
+        const privateCorrectUsername = "KG359"; 
+        const privateCorrectPassword = "Chizu8890";
+
+        // Función de LOGIN GLOBAL
+        function globalLogin() {
+            const usernameInput = document.getElementById('global-username-input').value;
+            const passwordInput = document.getElementById('global-password-input').value;
+            const authMessage = document.getElementById('global-auth-message');
+            const loginContainer = document.getElementById('login-container');
+            const mainContent = document.getElementById('main-content');
+
+            if (usernameInput === globalCorrectUsername && passwordInput === globalCorrectPassword) {
+                // Credenciales correctas: oculta el login y muestra el contenido principal
+                loginContainer.style.display = 'none';
+                mainContent.style.display = 'block';
+                // Opcional: limpiar mensaje si ya lo hay
+                authMessage.textContent = ''; 
+            } else {
+                // Credenciales incorrectas: muestra un mensaje de error
+                authMessage.textContent = 'Nombre de usuario o Contraseña incorrectos. Inténtalo de nuevo.';
+                authMessage.style.color = 'red';
+                document.getElementById('global-username-input').value = ''; // Limpia el campo
+                document.getElementById('global-password-input').value = ''; // Limpia el campo
+            }
+        }
+        
+        // Función de LOGIN PARA VIDEOS PRIVADOS
+        function checkCredentials() {
+            const usernameInput = document.getElementById('username-input').value;
+            const passwordInput = document.getElementById('password-input').value;
+            const authMessage = document.getElementById('auth-message');
+            const authForm = document.getElementById('private-auth');
+            const privateContent = document.getElementById('private-videos-content');
+
+            if (usernameInput === privateCorrectUsername && passwordInput === privateCorrectPassword) {
+                // Credenciales correctas: oculta el formulario y muestra los videos
+                authForm.style.display = 'none';
+                privateContent.style.display = 'block';
+                authMessage.textContent = '¡Acceso Concedido a Videos Privados!';
+                authMessage.style.color = 'green';
+            } else {
+                // Credenciales incorrectas: muestra un mensaje de error
+                authMessage.textContent = 'Nombre de usuario o Contraseña de Owner incorrectos. Inténtalo de nuevo.';
+                authMessage.style.color = 'red';
+                document.getElementById('username-input').value = ''; // Limpia el campo
+                document.getElementById('password-input').value = ''; // Limpia el campo
+            }
+        }
+    </script>
+    
+</body>
+</html>
